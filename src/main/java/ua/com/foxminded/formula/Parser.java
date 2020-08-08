@@ -14,7 +14,7 @@ public class Parser {
     public Path pathToStart = Paths.get(Objects.requireNonNull(this.getClass().getClassLoader().getResource("start.log")).toURI());
     public Path pathToEnd = Paths.get(Objects.requireNonNull(this.getClass().getClassLoader().getResource("end.log")).toURI());
 
-    public Parser() throws URISyntaxException {
+    public Parser() throws URISyntaxException, IOException {
     }
 
     public  List<String> read(Path path) throws IOException, URISyntaxException {
@@ -23,6 +23,9 @@ public class Parser {
                 .collect(Collectors.toList());
     }
 
+    List<String>abbreviations = read(pathToAbbreviations);
+    List<String>start_log = read(pathToStart);
+    List<String>end_log = read(pathToEnd);
 
 
 }
