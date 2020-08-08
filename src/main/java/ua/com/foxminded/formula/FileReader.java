@@ -1,5 +1,6 @@
 package ua.com.foxminded.formula;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
@@ -8,24 +9,29 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class Parser {
-    public Path pathToAbbreviations = Paths.get(Objects.requireNonNull(this.getClass().getClassLoader().getResource("abbreviations.txt")).toURI());
-    public Path pathToStart = Paths.get(Objects.requireNonNull(this.getClass().getClassLoader().getResource("start.log")).toURI());
-    public Path pathToEnd = Paths.get(Objects.requireNonNull(this.getClass().getClassLoader().getResource("end.log")).toURI());
+public class FileReader {
 
-    public Parser() throws URISyntaxException, IOException {
+    public List<String> read(File file) throws IOException {
+        checkFile(file);
+        Stream<String>stream = Files.lines(Paths.get(file.getAbsolutePath()));
+        return stream.collect(Collectors.toList());
     }
 
-    public  List<String> read(Path path) throws IOException, URISyntaxException {
+    private void checkFile(File file){
+        if (file==null){
+            throw new IllegalArgumentException("the file can't be null");
+        }
+        if (!file.exists()){
+            throw new IllegalArgumentException(file.getName()+" dos't exist");
+        }
+        if (!file.canRead()){
+            throw new IllegalArgumentException(file.getName()+ " can't be read");
+        }
 
-        return Files.lines(Paths.get(String.valueOf(path)))
-                .collect(Collectors.toList());
+
     }
-
-    List<String>abbreviations = read(pathToAbbreviations);
-    List<String>start_log = read(pathToStart);
-    List<String>end_log = read(pathToEnd);
 
 
 }
