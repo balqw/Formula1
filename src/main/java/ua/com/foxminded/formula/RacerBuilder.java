@@ -3,15 +3,17 @@ package ua.com.foxminded.formula;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
 public class RacerBuilder {
     public List<Racer> createRacers(List<String>start, List<String>end, List<String>abbreviation){
 
-        List<Racer>result = new ArrayList<>();
+        List<Racer>result = new LinkedList<>();
         String abrv;
         String name;
         String team;
@@ -38,8 +40,8 @@ public class RacerBuilder {
                 }
             }
 
-            LocalDate startTime = LocalDate.parse(start_lap,formatter);
-            LocalDate endTime = LocalDate.parse(end_lap,formatter);
+            LocalTime startTime = LocalTime.parse(start_lap,formatter);
+            LocalTime endTime = LocalTime.parse(end_lap,formatter);
 
             lapTime = Duration.between(startTime,endTime);
 
