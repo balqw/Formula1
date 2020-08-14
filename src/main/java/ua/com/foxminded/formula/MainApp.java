@@ -25,9 +25,8 @@ public class MainApp {
        List<Racer>kkk = racerBuilder.createRacers(start_log_file,end_log_file,abbreviation_file );
 
 
-       for(Racer r:kkk){
-           System.out.println(r);
-       }
+      RacerFormatter formatter = new RacerFormatter();
+      formatter.formatted(kkk);
 
    }
 }
