@@ -1,8 +1,16 @@
 package ua.com.foxminded.formula;
 
 import java.time.Duration;
+<<<<<<< HEAD
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+=======
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+>>>>>>> a907ad6eceb685b190445e7e5ccd865b296d3374
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
@@ -37,8 +45,13 @@ public class RacerBuilder {
                 }
             }
 
+<<<<<<< HEAD
             LocalTime startTime = LocalTime.parse(startLap,formatter);
             LocalTime endTime = LocalTime.parse(endLap,formatter);
+=======
+            LocalTime startTime = LocalTime.parse(start_lap,formatter);
+            LocalTime endTime = LocalTime.parse(end_lap,formatter);
+>>>>>>> a907ad6eceb685b190445e7e5ccd865b296d3374
 
             lapTime = Duration.between(startTime,endTime);
 
