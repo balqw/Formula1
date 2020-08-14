@@ -13,6 +13,7 @@
         <maven.compiler.source>8</maven.compiler.source>
         <junit.jupiter.version>5.4.2</junit.jupiter.version>
         <org.apache.maven.plugins.version>2.22.2</org.apache.maven.plugins.version>
+        <org.apache.commons.lang3>3.11</org.apache.commons.lang3>
     </properties>
 
     <dependencies>
@@ -28,6 +29,13 @@
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.11</version>
+        </dependency>
+
     </dependencies>
 
     <build>
