@@ -2,6 +2,7 @@ package ua.com.foxminded.formula;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 
 
@@ -20,13 +21,14 @@ public class MainApp {
        List<String>abbreviationList = fileReader.read(abbreviations_file);
 
 
-
        RacerBuilder racerBuilder = new RacerBuilder();
        List<Racer>racers = racerBuilder.createRacers(startLogList,endLogList,abbreviationList );
 
 
       RacerFormatter formatter = new RacerFormatter();
-      formatter.formatted(racers);
+       System.out.println(formatter.format(racers));
+
+
 
    }
 }

@@ -25,8 +25,6 @@ public class FileReader {
         if (!file.canRead()){
             throw new IllegalArgumentException(file.getName()+ " can't be read");
         }
-
-
     }
 
 

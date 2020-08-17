@@ -9,7 +9,6 @@ import java.util.List;
 
 public class RacerBuilder {
     public List<Racer> createRacers(List<String>start, List<String>end, List<String>abbreviation){
-
         List<Racer>result = new LinkedList<>();
         String abrv;
         String name;

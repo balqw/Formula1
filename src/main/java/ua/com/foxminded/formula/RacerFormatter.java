@@ -6,14 +6,16 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 public class RacerFormatter {
 
-    public void formatted(List<Racer> source){
-        Collections.sort(source);
+    public String format(List<Racer> source){
+
         int nameMaxLength=0;
         int teamMaxLength=0;
         int maxLengthLine;
         int otherSymbols=17;
+        StringBuilder result = new StringBuilder();
         String lapTime;
         String underLine = "_";
+        Collections.sort(source);
 
         for(Racer racer : source){
             if(racer.getName().length()>nameMaxLength)
@@ -30,12 +32,14 @@ public class RacerFormatter {
             {
                 System.out.println( StringUtils.repeat(underLine,maxLengthLine));
             }
-            System.out.printf("%2d.%-"+nameMaxLength+"s%" +
+            result.append(String.format("%2d.%-"+nameMaxLength+"s%" +
                     "s%-"+teamMaxLength+"s%s%" +
                     "s%n",
-                    i+1,source.get(i).getName(),"|",source.get(i).getTeam(),"|",lapTime);
+                    i+1,source.get(i).getName(),"|",source.get(i).getTeam(),"|",lapTime));
         }
+
+
+        return result.toString();
+
     }
-
-
 }
