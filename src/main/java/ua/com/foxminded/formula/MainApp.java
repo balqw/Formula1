@@ -2,7 +2,7 @@ package ua.com.foxminded.formula;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -16,9 +16,13 @@ public class MainApp {
        File abbreviations_file = new File("src/main/resources/abbreviations.txt");
 
 
-       List<String>startLogList = fileReader.read(startFile);
-       List<String>endLogList = fileReader.read(endFile);
-       List<String>abbreviationList = fileReader.read(abbreviations_file);
+      // List<String>startLogList = fileReader.read(startFile);
+       //List<String>endLogList = fileReader.read(endFile);
+       //List<String>abbreviationList = fileReader.read(abbreviations_file);
+
+       List<String>startLogList = new ArrayList<>();
+       List<String>endLogList = new ArrayList<>();
+       List<String>abbreviationList = new ArrayList<>();
 
 
        RacerBuilder racerBuilder = new RacerBuilder();

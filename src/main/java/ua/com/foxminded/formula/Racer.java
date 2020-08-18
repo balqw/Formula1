@@ -36,5 +36,13 @@ public class Racer implements Comparable<Racer>{
         return this.lapTime.compareTo(o.lapTime);
     }
 
+    @Override
+    public String toString() {
+        return "Racer{" +
+                "name='" + name + '\'' +
+                ", team='" + team + '\'' +
+                ", lapTime=" + lapTime +
+                '}';
+    }
 }
 

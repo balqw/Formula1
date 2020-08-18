@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 public class FileReader {
 
     public List<String> read(File file) throws IOException {
-        checkFile(file);
+        //checkFile(file);
         Stream<String>stream = Files.lines(Paths.get(file.getAbsolutePath()));
         return stream.collect(Collectors.toList());
     }
