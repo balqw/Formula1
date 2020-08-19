@@ -1,6 +1,7 @@
 package ua.com.foxminded.formula;
 
 import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.Collections;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
@@ -25,17 +26,21 @@ public class RacerFormatter {
         }
         maxLengthLine = nameMaxLength+teamMaxLength+otherSymbols;
 
-        for (int i = 0;i <source.size();i++){
-            lapTime = LocalTime.ofNanoOfDay(source.get(i).getLapTime().toNanos()).toString();
+        try {
+            for (int i = 0;i <source.size();i++){
+                lapTime = LocalTime.ofNanoOfDay(source.get(i).getLapTime().toNanos()).toString();
 
-            if(i==15)
-            {
-                System.out.println( StringUtils.repeat(underLine,maxLengthLine));
+                if(i==15)
+                {
+                    System.out.println( StringUtils.repeat(underLine,maxLengthLine));
+                }
+                result.append(String.format("%2d.%-"+nameMaxLength+"s%" +
+                        "s%-"+teamMaxLength+"s%s%" +
+                        "s%n",
+                        i+1,source.get(i).getName(),"|",source.get(i).getTeam(),"|",lapTime));
             }
-            result.append(String.format("%2d.%-"+nameMaxLength+"s%" +
-                    "s%-"+teamMaxLength+"s%s%" +
-                    "s%n",
-                    i+1,source.get(i).getName(),"|",source.get(i).getTeam(),"|",lapTime));
+        } catch (DateTimeParseException e) {
+            System.out.println("error");
         }
 
 
