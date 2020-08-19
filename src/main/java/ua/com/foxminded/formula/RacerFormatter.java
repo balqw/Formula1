@@ -1,49 +1,46 @@
 package ua.com.foxminded.formula;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.time.LocalTime;
-import java.time.format.DateTimeParseException;
 import java.util.Collections;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
+import java.util.Optional;
+
 public class RacerFormatter {
 
-    public String format(List<Racer> source){
+    public String format(List<Racer> racerList) {
+        List<Racer> racers = Optional.ofNullable(racerList)
+                .orElseThrow(() -> new IllegalArgumentException("Racers non null arf required!"));
 
-        int nameMaxLength=0;
-        int teamMaxLength=0;
+        int nameMaxLength = 0;
+        int teamMaxLength = 0;
         int maxLengthLine;
-        int otherSymbols=17;
+        int otherSymbols = 17;
         StringBuilder result = new StringBuilder();
         String lapTime;
         String underLine = "_";
-        Collections.sort(source);
+        Collections.sort(racers);
 
-        for(Racer racer : source){
-            if(racer.getName().length()>nameMaxLength)
-                nameMaxLength=racer.getName().length();
-            if(racer.getTeam().length()>teamMaxLength)
-                teamMaxLength=racer.getTeam().length();
+        for (Racer racer : racers) {
+            if (racer.getName().length() > nameMaxLength)
+                nameMaxLength = racer.getName().length();
+            if (racer.getTeam().length() > teamMaxLength)
+                teamMaxLength = racer.getTeam().length();
         }
-        maxLengthLine = nameMaxLength+teamMaxLength+otherSymbols;
+        maxLengthLine = nameMaxLength + teamMaxLength + otherSymbols;
 
-        try {
-            for (int i = 0;i <source.size();i++){
-                lapTime = LocalTime.ofNanoOfDay(source.get(i).getLapTime().toNanos()).toString();
+        for (int i = 0; i < racers.size(); i++) {
+            lapTime = LocalTime.ofNanoOfDay(racers.get(i).getLapTime().toNanos()).toString(); //FixMe: NPE here!
 
-                if(i==15)
-                {
-                    System.out.println( StringUtils.repeat(underLine,maxLengthLine));
-                }
-                result.append(String.format("%2d.%-"+nameMaxLength+"s%" +
-                        "s%-"+teamMaxLength+"s%s%" +
-                        "s%n",
-                        i+1,source.get(i).getName(),"|",source.get(i).getTeam(),"|",lapTime));
+            if (i == 15) {
+                System.out.println(StringUtils.repeat(underLine, maxLengthLine));
             }
-        } catch (DateTimeParseException e) {
-            System.out.println("error");
+            result.append(String.format("%2d.%-" + nameMaxLength + "s%" +
+                            "s%-" + teamMaxLength + "s%s%" +
+                            "s%n",
+                    i + 1, racers.get(i).getName(), "|", racers.get(i).getTeam(), "|", lapTime));
         }
-
-
         return result.toString();
 
     }
