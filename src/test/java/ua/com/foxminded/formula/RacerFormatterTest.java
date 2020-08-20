@@ -36,7 +36,7 @@ class RacerFormatterTest {
     void formatShouldThrowsDateTimeParseException() {
         Racer racer = new Racer("Daniel Ricciardo", "RED BULL RACING TAG HEUER", null);
         List<Racer> list = Collections.singletonList(racer);
-        assertThrows(DateTimeParseException.class, () -> racerFormatter.format(list));
+        assertThrows(NullPointerException.class, () -> racerFormatter.format(list));
     }
 
 }
