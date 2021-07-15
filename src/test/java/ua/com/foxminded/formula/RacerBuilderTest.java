@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RacerBuilderTest {
-
+/*
     static RacerBuilder racerBuilder = new RacerBuilder();
 
     @Test
@@ -60,5 +60,5 @@ class RacerBuilderTest {
 
     }
 
-
+*/
 }

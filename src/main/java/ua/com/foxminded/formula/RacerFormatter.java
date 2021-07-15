@@ -17,11 +17,10 @@ public class RacerFormatter {
         List<Racer> racers = Optional.ofNullable(racerList)
                 .orElseThrow(() -> new IllegalArgumentException("Racers non null arf required!"));
 
-        final int lineForSeparator = 15;
+        final int lineForUnderLine = 15;
         int nameMaxLength = 0;
         int teamMaxLength = 0;
         int maxLengthLine;
-        int otherSymbols = 17;
         StringBuilder result = new StringBuilder();
         String lapTime;
         String underLine = "_";
@@ -34,13 +33,13 @@ public class RacerFormatter {
             if (racer.getTeam().length() > teamMaxLength)
                 teamMaxLength = racer.getTeam().length();
         }
-        maxLengthLine = nameMaxLength + teamMaxLength + otherSymbols;
+        maxLengthLine = nameMaxLength + teamMaxLength + racerList.size();
 
         for (int i = 0; i < racers.size(); i++) {
             checkForNull(racers.get(i).getName(),racers.get(i).getTeam(),racers.get(i).getLapTime());
             lapTime = LocalTime.ofNanoOfDay(racers.get(i).getLapTime().toNanos()).toString();
 
-            if (i == lineForSeparator) {
+            if (i == lineForUnderLine) {
                 result.append(StringUtils.repeat(underLine, maxLengthLine)).append("\n");
             }
             result.append(String.format("%2d.%-" + nameMaxLength + "s%" +
@@ -58,4 +57,6 @@ public class RacerFormatter {
         Optional.ofNullable(team).orElseThrow(()->new IllegalArgumentException("null in team"));
         Optional.ofNullable(lapTime).orElseThrow(()->new IllegalArgumentException("null in lapTime"));
     }
+
+    Object object = new Object();
 }

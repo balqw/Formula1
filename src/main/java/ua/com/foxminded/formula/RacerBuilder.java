@@ -25,9 +25,6 @@ public class RacerBuilder {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
 
 
-
-
-
         for(int i =0;i < startDate.size();i++){
             abbreviation = abbreviationDate.get(i).split("_")[0];
             name = abbreviationDate.get(i).split("_")[1];

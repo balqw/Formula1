@@ -12,8 +12,9 @@
         <maven.compiler.target>8</maven.compiler.target>
         <maven.compiler.source>8</maven.compiler.source>
         <junit.jupiter.version>5.4.2</junit.jupiter.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.apache.maven.plugins.version>2.22.2</org.apache.maven.plugins.version>
-        <org.apache.commons.lang3>3.11</org.apache.commons.lang3>
+        <org.apache.commons.lang3.version>3.11</org.apache.commons.lang3.version>
     </properties>
 
     <dependencies>
@@ -33,8 +34,16 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.11</version>
+            <version>${org.apache.commons.lang3.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.3.3</version>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 

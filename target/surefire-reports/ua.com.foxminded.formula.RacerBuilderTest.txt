@@ -1,0 +1,26 @@
+-------------------------------------------------------------------------------
+Test set: ua.com.foxminded.formula.RacerBuilderTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 2, Errors: 2, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in ua.com.foxminded.formula.RacerBuilderTest
+createRacersShouldThrowsBoundsExceptionIfArraysIsEmpty  Time elapsed: 0 s  <<< ERROR!
+java.lang.StringIndexOutOfBoundsException: String index out of range: 3
+	at ua.com.foxminded.formula.RacerBuilderTest.createRacersShouldThrowsBoundsExceptionIfArraysIsEmpty(RacerBuilderTest.java:45)
+
+createRacersShouldThrowsNullExceptionIfAnyArgIsNull  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <java.lang.NullPointerException> but was: <java.lang.IllegalArgumentException>
+	at ua.com.foxminded.formula.RacerBuilderTest.createRacersShouldThrowsNullExceptionIfAnyArgIsNull(RacerBuilderTest.java:17)
+Caused by: java.lang.IllegalArgumentException: null in start
+	at ua.com.foxminded.formula.RacerBuilderTest.lambda$createRacersShouldThrowsNullExceptionIfAnyArgIsNull$0(RacerBuilderTest.java:17)
+	at ua.com.foxminded.formula.RacerBuilderTest.createRacersShouldThrowsNullExceptionIfAnyArgIsNull(RacerBuilderTest.java:17)
+
+createRacersShouldReturnEmptyListIfArgListIsEmpty  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalArgumentException: start is empty
+	at ua.com.foxminded.formula.RacerBuilderTest.createRacersShouldReturnEmptyListIfArgListIsEmpty(RacerBuilderTest.java:27)
+
+createRacersShouldThrowsBoundsExceptionIfAnyArgHaveDifferentLength  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==> expected: <java.lang.ArrayIndexOutOfBoundsException> but was: <java.lang.IndexOutOfBoundsException>
+	at ua.com.foxminded.formula.RacerBuilderTest.createRacersShouldThrowsBoundsExceptionIfAnyArgHaveDifferentLength(RacerBuilderTest.java:36)
+Caused by: java.lang.IndexOutOfBoundsException: Different in size arg
+	at ua.com.foxminded.formula.RacerBuilderTest.lambda$createRacersShouldThrowsBoundsExceptionIfAnyArgHaveDifferentLength$1(RacerBuilderTest.java:36)
+	at ua.com.foxminded.formula.RacerBuilderTest.createRacersShouldThrowsBoundsExceptionIfAnyArgHaveDifferentLength(RacerBuilderTest.java:36)
+
